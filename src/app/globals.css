@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #c9a227;
+  --color-brand-dark: #9c7a1a;
+  --color-brand-light: #e8c766;
+  --color-star: #f5a623;
+  --color-ink: #0a0a0a;
+  --color-ink-soft: #222222;
+  --color-cream: #f5f0e6;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+}
+
+body {
+  color: var(--color-ink);
+}
+
+@layer components {
+  .input-field {
+    @apply w-full px-4 py-2.5 border border-gray-300 rounded-md text-sm focus:ring-2 focus:ring-brand focus:border-brand outline-none transition-colors bg-white;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 bg-ink text-white px-6 py-3 text-sm font-semibold tracking-wide uppercase rounded-none hover:bg-ink-soft transition-colors;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-ink text-ink px-6 py-3 text-sm font-semibold tracking-wide uppercase rounded-none hover:bg-ink hover:text-white transition-colors;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 bg-brand text-ink px-6 py-3 text-sm font-bold tracking-wide uppercase rounded-none hover:bg-brand-dark transition-colors;
+  }
+
+  .section-title {
+    @apply text-2xl md:text-3xl font-bold text-ink tracking-tight;
+  }
+
+  .section-eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.2em] text-brand-dark;
+  }
+
+  .price-strike {
+    @apply text-gray-400 line-through text-sm;
+  }
+}
+
+::selection {
+  background-color: var(--color-brand);
+  color: var(--color-ink);
+}
+
+@keyframes marquee-x {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee-x linear infinite;
+}
+
+.animate-marquee:hover,
+.animate-marquee.is-paused {
+  animation-play-state: paused;
+}
